@@ -9,7 +9,7 @@
     android:paddingTop="20dp"
     android:paddingHorizontal="20dp"
     android:background="@color/black"
-    tools:context=".MainActivity">
+    tools:context=".SearchActivity">
 
     <TextView
         android:layout_width="wrap_content"

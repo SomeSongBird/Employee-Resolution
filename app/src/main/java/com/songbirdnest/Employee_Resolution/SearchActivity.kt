@@ -15,7 +15,7 @@ import com.android.volley.toolbox.HurlStack
 import com.android.volley.toolbox.StringRequest
 
 
-class MainActivity : AppCompatActivity() {
+class SearchActivity : AppCompatActivity() {
 
     // set up so that data in the app's fields can be used here
     // the employee number to search on
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_search)
 
         // get the data from the User Interface by element ID
         empToRetrieve = findViewById(R.id.empToRetrieve)
