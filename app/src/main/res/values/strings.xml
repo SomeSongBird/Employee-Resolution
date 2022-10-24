@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">employee_resolution</string>
+
+    <string name="search">Search Employee By ID</string>
+    <string name="update">Update an Employee Record</string>
+    <string name="create">Enter a New Employee</string>
+    <string name="delete">Remove an Employee From the System</string>
+    <string name="about">Get Information About the App</string>
+
     <string name="sensor_num">Enter Employee ID</string>
     <string name="retrieve_button">Retrieve by ID</string>
     <string name="guessImDoingThis">First Name</string>
