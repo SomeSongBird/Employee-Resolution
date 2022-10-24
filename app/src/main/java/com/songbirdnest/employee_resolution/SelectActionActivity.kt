@@ -1,4 +1,4 @@
-package com.songbirdnest.Employee_Resolution
+package com.songbirdnest.employee_resolution
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

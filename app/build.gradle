@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.songbirdnest.Employee_Resolution'
+    namespace 'com.songbirdnest.employee_resolution'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.songbirdnest.Employee_Resolution"
+        applicationId "com.songbirdnest.employee_resolution"
         minSdk 21
         targetSdk 32
         versionCode 1

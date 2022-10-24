@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Employee_Resolution</string>
+    <string name="app_name">employee_resolution</string>
     <string name="sensor_num">Enter Employee ID</string>
     <string name="retrieve_button">Retrieve by ID</string>
     <string name="guessImDoingThis">First Name</string>

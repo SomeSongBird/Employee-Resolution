@@ -1,11 +1,11 @@
-package com.songbirdnest.Employee_Resolution
+package com.songbirdnest.employee_resolution
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class CreateActivity : AppCompatActivity() {
+class AboutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_create)
+        setContentView(R.layout.activity_about)
     }
 }
