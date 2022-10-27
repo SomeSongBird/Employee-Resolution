@@ -9,7 +9,8 @@
 
     <string name="sensor_num">Enter Employee ID</string>
     <string name="retrieve_button">Retrieve by ID</string>
-    <string name="guessImDoingThis">First Name</string>
-    <string name="mightAsWell">Last Name</string>
-    <string name="ohBoyAntoherone">Hire Date</string>
+    <string name="first">First Name</string>
+    <string name="last">Last Name</string>
+    <string name="hire">Hire Date</string>
+    <string name="birth">Birth Date</string>
 </resources>

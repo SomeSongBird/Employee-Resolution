@@ -21,6 +21,7 @@ class SearchActivity : AppCompatActivity() {
     // the employee data to be returned and displayed
     private lateinit var firstName: TextView
     private lateinit var lastName: TextView
+    private lateinit var birthDate: TextView
     private lateinit var hireDate: TextView
     private lateinit var errorLine:TextView
     private  lateinit var table: TableLayout
@@ -35,6 +36,7 @@ class SearchActivity : AppCompatActivity() {
         // to the UI
         firstName = findViewById(R.id.firstNameData)
         lastName = findViewById(R.id.lastNameData)
+        birthDate = findViewById(R.id.birthData)
         hireDate = findViewById(R.id.hireDateData)
         errorLine = findViewById(R.id.Error)
         table = findViewById(R.id.table)
@@ -56,6 +58,7 @@ class SearchActivity : AppCompatActivity() {
                     val obj = JSONObject(response);
                     firstName.text = obj["first_name"].toString()
                     lastName.text = obj["last_name"].toString()
+                    birthDate.text = obj["birth_date"].toString()
                     hireDate.text = obj["hire_date"].toString()
                     Log.i("Request", "Recieved Request is: $obj")
                     table.isVisible = true
@@ -74,6 +77,5 @@ class SearchActivity : AppCompatActivity() {
         )
         // Add the request to the RequestQueue.
         requestMan.addToRequestQueue(req)
-
     }
 }

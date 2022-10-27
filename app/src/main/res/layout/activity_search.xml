@@ -60,7 +60,7 @@
 
             <TextView
                 android:id="@+id/FirstName"
-                android:text="@string/guessImDoingThis"
+                android:text="@string/first"
                 style="@style/Text"/>
 
             <TextView
@@ -75,7 +75,7 @@
             android:layout_gravity="left">
             <TextView
                 android:id="@+id/lastName"
-                android:text="@string/mightAsWell"
+                android:text="@string/last"
                 style="@style/Text"/>
 
             <TextView
@@ -88,9 +88,25 @@
         <TableRow
             android:layout_width="wrap_content"
             android:layout_gravity="left">
+
+            <TextView
+                android:id="@+id/birth"
+                android:text="@string/birth"
+                style="@style/Text"/>
+
+            <TextView
+                android:id="@+id/birthData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                style="@style/Text" />
+        </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_gravity="left">
             <TextView
                 android:id="@+id/hireDate"
-                android:text="@string/ohBoyAntoherone"
+                android:text="@string/hire"
                 style="@style/Text"/>
 
             <TextView
