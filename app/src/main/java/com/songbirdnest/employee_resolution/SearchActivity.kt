@@ -1,6 +1,7 @@
 package com.songbirdnest.employee_resolution
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TableLayout
@@ -8,11 +9,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.android.volley.Request
-import com.android.volley.RequestQueue
-import com.android.volley.toolbox.BasicNetwork
-import com.android.volley.toolbox.DiskBasedCache
-import com.android.volley.toolbox.HurlStack
 import com.android.volley.toolbox.StringRequest
+import org.json.JSONObject
 
 
 class SearchActivity : AppCompatActivity() {
@@ -47,49 +45,35 @@ class SearchActivity : AppCompatActivity() {
     fun  retrieveData(view: View){
         table.isVisible = false
         errorLine.isVisible = false
-        // local function var that contains the employee to retrieve
-        val employeeId = empToRetrieve.text.toString()
 
-        // The next three variable settings are for setting up the HTTP request
-        // to the PHP app server to invoke the API and retrieve the data
-        // Instantiate the cache
-        val cache = DiskBasedCache(cacheDir, 1024 * 1024) // 1MB cap
-        // Set up the network to use HttpURLConnection as the HTTP client.
-        val network = BasicNetwork(HurlStack())
+        val requestMan = RequestManager.getInstance(this)
 
-        // need to set up a request queue to hold the data that is being retrieved
-        // asynchronously
-        val requestQueue = RequestQueue(cache, network).apply {
-            start()
-        }
+        val url = "http://192.168.56.10/search_emp_no_json.php?emp_no=" + empToRetrieve.text.toString()
 
-        // you will need to change the IP address to whatever your LAMP server's IP is
-        // uncomment the url you'd like to use
-        // this url returns plain text
-        val url = "http://192.168.56.10/search_emp_no.php?emp_no=" + employeeId
-        // this url returns json data
-        //val url = "http://172.16.141.133/search_emp_no_json.php?emp_no=" + employeeId
-
-        // Formulate the request and handle the response.
-        val stringRequest = StringRequest(Request.Method.GET, url,
-            { response ->
-                val splitResponse = response.split(' ')
-                val firstN = splitResponse[2]
-                val lastN = splitResponse[5]
-                val hireD = splitResponse[8]
-                firstName.text = firstN// Do something with the response
-                lastName.text = lastN
-                hireDate.text = hireD
-                table.isVisible = true
-            },
-            { error ->
-                // Handle error
-                errorLine.text = "ERROR: %s".format(error.toString())
-                errorLine.isVisible=true
-            })
-
+        val req = StringRequest(Request.Method.GET,url,
+            {response ->
+                try{
+                    val obj = JSONObject(response);
+                    firstName.text = obj["first_name"].toString()
+                    lastName.text = obj["last_name"].toString()
+                    hireDate.text = obj["hire_date"].toString()
+                    Log.i("Request", "Recieved Request is: $obj")
+                    table.isVisible = true
+                    errorLine.isVisible = false
+                } catch (e:java.lang.Exception){
+                    table.isVisible = false
+                    errorLine.isVisible = true
+                    errorLine.text = e.toString()
+                    Log.e("My App", "Could not parse malformed JSON: \"" + response + "\"")
+                }
+                //firstName.text = response
+            },{error ->
+                table.isVisible = false
+                errorLine.isVisible = true
+                errorLine.text = error.toString()}
+        )
         // Add the request to the RequestQueue.
-        requestQueue.add(stringRequest)
+        requestMan.addToRequestQueue(req)
 
     }
 }
