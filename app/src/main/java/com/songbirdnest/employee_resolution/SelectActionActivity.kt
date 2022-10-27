@@ -11,7 +11,6 @@ class SelectActionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_action)
     }
-
     fun loadNewActivity(view: View){
         val activity:Activity = when (view.id){
             R.id.search_button -> SearchActivity()
