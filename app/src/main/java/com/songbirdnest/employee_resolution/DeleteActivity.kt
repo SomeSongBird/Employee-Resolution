@@ -32,6 +32,7 @@ class DeleteActivity : AppCompatActivity() {
         confirmationInfo=findViewById(R.id.confirmation_info)
         first_name=findViewById(R.id.first)
         last_name=findViewById(R.id.last)
+        status=findViewById(R.id.deleteStatus)
     }
 
     fun confirm(view: View){

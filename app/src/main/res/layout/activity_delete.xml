@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="2"
-        android:visibility="visible">
+        android:visibility="invisible">
         <TextView
             android:layout_columnSpan="2"
             style="@style/Text"
