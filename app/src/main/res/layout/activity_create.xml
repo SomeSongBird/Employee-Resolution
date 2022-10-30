@@ -82,6 +82,8 @@
         android:layout_marginBottom="10dp"/>
 
     <TextView
+        android:layout_above="@+id/create"
+        android:layout_marginBottom="10dp"
         android:id="@+id/createStatus"
         style="@style/Text"
         />

@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import com.android.volley.Request
+import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import org.json.JSONObject
@@ -57,24 +58,32 @@ class UpdateActivity : AppCompatActivity() {
         requestMan.addToRequestQueue(req)
     }
     fun updateData(view:View){
-        //create the json object to put the updated data into
-        val obj = JSONObject()
-        obj.put("emp_no",empToRetrieve.text.toString())
-        obj.put("first_name",firstName.text.toString())
-        obj.put("last_name",lastName.text.toString())
-        obj.put("hire_date",hireDate.text.toString())
-
         val requestMan = RequestManager.getInstance(this)
         val url = "http://192.168.56.10/updateemployeeattrJSON.php"
 
         //post the udpated data to the server
-        val req = JsonObjectRequest(Request.Method.POST,url,obj, null,
-            { response->
-                Log.i("update",response.toString())
-                updateStatus.text = getString(R.string.updateComplete)
-            })
-        //This does not work as it should, the confirmation is where the error should be but that's the only one that would run
-        //even though there were no errors that I could actually find
+
+        //note: for code like this I looked it up and added my own stuff | source: https://stackoverflow.com/questions/50344562/how-to-get-string-response-from-php-using-android-volley-jsonobjectrequest
+        val req = object: StringRequest(Request.Method.POST, url,
+            Response.Listener { }, Response.ErrorListener { }) {
+            override fun getBodyContentType(): String {
+                return "application/json; charset=utf-8"
+            }
+            override fun getBody(): ByteArray {
+                try {
+                    //construction of json to send
+                    val obj = JSONObject()
+                    obj.put("emp_no",empToRetrieve.text.toString())
+                    obj.put("first_name",firstName.text.toString())
+                    obj.put("last_name",lastName.text.toString())
+                    obj.put("hire_date",hireDate.text.toString())
+
+                    return obj.toString().toByteArray(charset("utf-8"))
+                } catch (e: Exception) {
+                }
+                return ByteArray(0) //empty ByteArray
+            }
+        }
 
         requestMan.addToRequestQueue(req)
     }
