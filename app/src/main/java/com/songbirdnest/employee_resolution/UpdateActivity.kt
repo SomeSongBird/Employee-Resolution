@@ -5,12 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.EditText
-import android.widget.TableLayout
 import android.widget.TextView
-import androidx.core.view.isVisible
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.JsonRequest
 import com.android.volley.toolbox.StringRequest
 import org.json.JSONObject
 import java.lang.Exception
@@ -21,14 +18,16 @@ class UpdateActivity : AppCompatActivity() {
     private lateinit var firstName: EditText
     private lateinit var lastName: EditText
     private lateinit var hireDate: EditText
+    private lateinit var updateStatus: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update)
-
+        empToRetrieve=findViewById(R.id.empToRetrieve)
         firstName=findViewById(R.id.edit_first)
         lastName=findViewById(R.id.edit_last)
         hireDate=findViewById(R.id.edit_hire)
+        updateStatus=findViewById(R.id.updateStatus)
 
     }
     fun  retrieveData(view: View){
@@ -42,9 +41,9 @@ class UpdateActivity : AppCompatActivity() {
             {response ->
                 try{
                     val obj = JSONObject(response);
-                    firstName.hint = obj["first_name"].toString()
-                    lastName.hint = obj["last_name"].toString()
-                    hireDate.hint = obj["hire_date"].toString()
+                    firstName.setText(obj["first_name"].toString())
+                    lastName.setText(obj["last_name"].toString())
+                    hireDate.setText(obj["hire_date"].toString())
                     Log.i("Request", "Recieved Request is: $obj")
                 } catch (e: Exception){
                     Log.e("My App", "Could not parse malformed JSON: \"" + response + "\"")
@@ -69,12 +68,13 @@ class UpdateActivity : AppCompatActivity() {
         val url = "http://192.168.56.10/updateemployeeattrJSON.php"
 
         //post the udpated data to the server
-        val req = JsonObjectRequest(Request.Method.POST,url,obj,
-            {request ->
-                Log.i("updateSuccess","Update success")
-            },{error ->
-                Log.e("updateRequest","Something went wrong updating the data")
+        val req = JsonObjectRequest(Request.Method.POST,url,obj, null,
+            { response->
+                Log.i("update",response.toString())
+                updateStatus.text = getString(R.string.updateComplete)
             })
+        //This does not work as it should, the confirmation is where the error should be but that's the only one that would run
+        //even though there were no errors that I could actually find
 
         requestMan.addToRequestQueue(req)
     }

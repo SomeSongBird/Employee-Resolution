@@ -13,4 +13,7 @@
     <string name="last">Last Name</string>
     <string name="hire">Hire Date</string>
     <string name="birth">Birth Date</string>
+
+    <string name="updateComplete">Successfully Updated Employee Record!</string>
+    <string name="updateFailed">Failed to Update Employee Record!</string>
 </resources>

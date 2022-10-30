@@ -77,4 +77,8 @@
         android:shadowColor="@color/background_green"
         android:shadowRadius="1.5"
         android:text="@string/update"/>
+    <TextView
+        android:id="@+id/updateStatus"
+        style="@style/Text"
+        />
 </LinearLayout>
