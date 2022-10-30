@@ -17,6 +17,9 @@
     <string name="updateComplete">Successfully Updated Employee Record!</string>
     <string name="updateFailed">Failed to Update Employee Record!</string>
 
+    <string name="createIntro">Enter the Employee\'s Information</string>
+    <string name="create_success">Successfully Created Employee Record</string>
+
     <string name="delete_success">Successfully Removed Employee Record</string>
     <string name="delete_button">Remove Employee</string>
     <string name="delete_confirmation">Are you sure you want to remove this employee?</string>

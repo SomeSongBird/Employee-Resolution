@@ -1,9 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateActivity">
+    android:orientation="vertical"
+    android:paddingStart="20dp"
+    android:paddingTop="20dp"
+    android:paddingHorizontal="20dp"
+    android:background="@color/black"
+    tools:context=".CreateActivity"
+    android:id="@+id/relLay">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/topText"
+        style="@style/Text"
+        android:text="@string/createIntro"
+        android:layout_marginBottom="10dp"/>
+    <View
+        android:layout_below="@id/topText"
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:background="@color/Green_primary"
+
+        />
+    <EditText
+        android:layout_below="@+id/topText"
+        android:id="@+id/emp_no"
+        style="@style/Text"
+        android:textColorHint="@color/Green_primary"
+        android:hint="Employee Number" />
+
+    <EditText
+        android:layout_below="@id/emp_no"
+        android:id="@+id/first"
+        style="@style/Text"
+        android:textColorHint="@color/Green_primary"
+        android:hint="First Name" />
+
+    <EditText
+        android:layout_below="@id/first"
+        android:id="@+id/last"
+        android:hint="Last Name"
+        android:textColorHint="@color/Green_primary"
+        style="@style/Text"/>
+    <EditText
+        android:layout_below="@id/last"
+        android:id="@+id/sex"
+        android:hint="Sex"
+        android:textColorHint="@color/Green_primary"
+        style="@style/Text"/>
+    <EditText
+        android:layout_below="@id/sex"
+        android:id="@+id/birthday"
+        android:hint="Birthdate"
+        android:textColorHint="@color/Green_primary"
+        style="@style/Text"/>
+    <Button
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_height="wrap_content"
+        android:id="@+id/create"
+        android:onClick="createData"
+        android:layout_column="0"
+        android:layout_columnSpan="1"
+        android:layout_width="wrap_content"
+        android:layout_gravity="left"
+        android:text="Add Employee"
+        android:layout_marginBottom="10dp"/>
+    <Button
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/noDelete"
+        android:onClick="resetActivity"
+        android:layout_column="1"
+        android:layout_columnSpan="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Cancel"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/createStatus"
+        style="@style/Text"
+        />
+</RelativeLayout>
