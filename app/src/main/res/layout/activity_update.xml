@@ -75,5 +75,6 @@
         android:layout_gravity="center"
         android:onClick="updateData"
         android:shadowColor="@color/background_green"
-        android:shadowRadius="1.5"/>
+        android:shadowRadius="1.5"
+        android:text="@string/update"/>
 </LinearLayout>
