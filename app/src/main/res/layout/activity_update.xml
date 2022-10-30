@@ -1,9 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="20dp"
+    android:paddingTop="20dp"
+    android:paddingHorizontal="20dp"
+    android:background="@color/black"
     tools:context=".UpdateActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sensor_num"
+        style="@style/Text"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        android:background="@color/offwhite">
+        <EditText
+            android:id="@+id/empToRetrieve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="15"
+            android:hint="499984"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:minHeight="48dp" />
+    </FrameLayout>
+    <Button
+        android:id="@+id/retrieveData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="retrieveData"
+        android:text="@string/retrieve_button"
+        android:shadowColor="@color/background_green"
+        android:shadowRadius="1.5"/>
+    <TextView
+        android:text="@string/first"
+        style="@style/Text"/>
+    <EditText
+        android:id="@+id/edit_first"
+        style="@style/Text"
+        android:ems="15"
+        android:inputType="text"
+        />
+    <TextView
+        android:text="@string/last"
+        style="@style/Text"/>
+    <EditText
+        android:id="@+id/edit_last"
+        style="@style/Text"
+        android:ems="15"
+        android:inputType="text"
+        />
+    <TextView
+        android:text="@string/hire"
+        style="@style/Text"/>
+    <EditText
+        android:id="@+id/edit_hire"
+        style="@style/Text"
+        android:ems="15"
+        android:inputType="text"
+        />
+    <Button
+        android:id="@+id/update_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="updateData"
+        android:shadowColor="@color/background_green"
+        android:shadowRadius="1.5"/>
+</LinearLayout>
