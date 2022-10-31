@@ -73,7 +73,7 @@ class SearchActivity : AppCompatActivity() {
             },{error ->
                 table.isVisible = false
                 errorLine.isVisible = true
-                errorLine.text = error.toString()}
+                errorLine.text = "Could not find employee number"+empToRetrieve.text}
         )
         // Add the request to the RequestQueue.
         requestMan.addToRequestQueue(req)

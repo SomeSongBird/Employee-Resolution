@@ -48,8 +48,10 @@ class CreateActivity : AppCompatActivity() {
         val req = object: StringRequest(Request.Method.POST, url,
             Response.Listener { response ->
                 Log.i("response",response.toString())
+                status.text="Record successfully created"
             }, Response.ErrorListener { error ->
                 Log.e("response",error.toString())
+                status.text="Something went wrong creating the employee record"
             }) {
             override fun getBodyContentType(): String {
                 return "application/json; charset=utf-8"

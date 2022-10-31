@@ -51,7 +51,10 @@ class DeleteActivity : AppCompatActivity() {
                 } catch (e: Exception){
                     Log.e("My App", "Could not parse malformed JSON: \"" + response + "\"")
                 }
-            },null
+            },{ error ->
+                Log.e("delete response",error.toString())
+                status.text = "Could not delete employee record"
+            }
         )
         // Add the request to the RequestQueue.
         requestMan.addToRequestQueue(req)

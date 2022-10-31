@@ -65,7 +65,13 @@ class UpdateActivity : AppCompatActivity() {
 
         //note: for code like this I looked it up and added my own stuff | source: https://stackoverflow.com/questions/50344562/how-to-get-string-response-from-php-using-android-volley-jsonobjectrequest
         val req = object: StringRequest(Request.Method.POST, url,
-            Response.Listener { }, Response.ErrorListener { }) {
+            Response.Listener { response ->
+                Log.i("update response",response.toString())
+                updateStatus.text = getString(R.string.updateComplete)
+            }, Response.ErrorListener { error ->
+                Log.e("update response",error.toString())
+                updateStatus.text = getString(R.string.updateFailed)
+            }) {
             override fun getBodyContentType(): String {
                 return "application/json; charset=utf-8"
             }
