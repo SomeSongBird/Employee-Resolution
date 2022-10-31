@@ -9,8 +9,7 @@
     android:paddingTop="20dp"
     android:paddingHorizontal="20dp"
     android:background="@color/background_green"
-    tools:context=".CreateActivity"
-    android:id="@+id/relLay">
+    tools:context=".CreateActivity">
 
     <TextView
         android:id="@+id/topText"
